@@ -20,6 +20,7 @@ public class Main {
                     OppgaveO2();
                     break;
                 case 3:
+                    error("Not implemented");
                     break;
                 default:
                     loopProgram = false;
@@ -152,7 +153,7 @@ public class Main {
                 if(number > 100)
                     error("Grade cannot be higher than ¤red 100");
                 if(number < 0)
-                    error("Grade cannot be lower than ¤red 100");
+                    error("Grade cannot be lower than ¤red 0");
 
                 return number <= 100 && number >= 0;
             });
