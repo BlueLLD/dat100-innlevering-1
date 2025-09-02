@@ -71,7 +71,7 @@ public class Main {
      * A function for assuring that the input will be a number
      * @param message the message to ask when reading the number
      * @param errorMessage warning message to display if the user inputted wrong
-     * @param predicate a check if the number is valid for your usecase
+     * @param predicate a check if the number is valid for your use case
      * @return read number
      */
     static int forceIntRead(String message,String errorMessage, Function<Integer,Boolean> predicate){
@@ -90,8 +90,8 @@ public class Main {
             input.next();
         }
     }
-    static <K,V> V findByPredicate(LinkedHashMap<K,V> mapToSeatch, Function<Map.Entry<K,V>,Boolean> predicate,V notFound){
-        for (var KV : mapToSeatch.entrySet()){
+    static <K,V> V findByPredicate(LinkedHashMap<K,V> mapToSearch, Function<Map.Entry<K,V>,Boolean> predicate,V notFound){
+        for (var KV : mapToSearch.entrySet()){
             if(predicate.apply(KV)){
                 return KV.getValue();
             }
