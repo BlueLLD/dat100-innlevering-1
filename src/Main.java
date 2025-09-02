@@ -139,10 +139,12 @@ public class Main {
         }
 
         List<Student> students = new ArrayList<>(List.of());//new Student("Lars",100),new Student("Bro",50),new Student("The queen of dance",80)
+        println("How many ¤student students end¤ are you registering?\nDefault ¤green 10");
+        input.useDelimiter("\n");
+        int amountOfStudents = input.hasNextInt() ? input.nextInt() : 10;
+        input.reset();
 
-        int amountOfStudents = forceIntRead("How many ¤student students end¤ are you registering?","Input has to be a ¤green number");
-
-        println("Register your ¤student students end¤:");
+        println("Register your ¤green "+amountOfStudents+" ¤student student"+(amountOfStudents > 1 ? "s" : "") + " end¤:");
         for(int i = 0;i<amountOfStudents;i++){
             println("Whats the ¤bold ¤yellow name end¤ of the ¤student student");
             String name = input.next();
