@@ -8,7 +8,7 @@ public class Main {
         boolean loopProgram = true;
         while (loopProgram){
             int task = forceIntRead(
-                "Select a ¤cyan ¤bold task end¤ to run [¤green 0 end¤-¤green 4 end¤]\n¤green 0 end¤ to end the program",
+                "Select a ¤cyan ¤bold task end¤ to run [¤green 0 end¤-¤green 3 end¤]\n¤green 0 end¤ to end the program",
             "¤cyan ¤bold Task end¤ has to be a ¤green number");
 
             flush();
@@ -20,7 +20,6 @@ public class Main {
                     OppgaveO2();
                     break;
                 case 3:
-                case 4:
                     break;
                 default:
                     loopProgram = false;
