@@ -49,6 +49,8 @@ public class Main {
      */
     static void flush(){
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
     /**
