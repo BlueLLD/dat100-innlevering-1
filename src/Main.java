@@ -93,9 +93,9 @@ public class Main {
             input.next();
         }
     }
-    static <K,V> V findByPredicate(LinkedHashMap<K,V> mapToSearch, Function<Map.Entry<K,V>,Boolean> predicate,V notFound){
+    static <K,V> V findByPredicate(LinkedHashMap<K,V> mapToSearch, BiFunction<K,V, Boolean> predicate, V notFound){
         for (var KV : mapToSearch.entrySet()){
-            if(predicate.apply(KV)){
+            if(predicate.apply(KV.getKey(),KV.getValue())){
                 return KV.getValue();
             }
         }
@@ -113,33 +113,13 @@ public class Main {
         }};
 
         int income = forceIntRead("Hvor mye ¤bold ¤red tjente end¤ du i år?");
-        float toTaxPercent = findByPredicate(incomeToTax,keyValuePair->keyValuePair.getKey()>=income,17.7f);
+        float toTaxPercent = findByPredicate(incomeToTax,(key,value)->key>=income,17.7f);
         float tax = ((income/100.0f)*toTaxPercent);
 
         println("Siden du tjente ¤green "+income+"kr end¤ så må du skatte ¤blue " + toTaxPercent + "% end¤ som blir ¤red "+tax+"kr");
     }
     static void OppgaveO2(){
         println("Oppgave ¤violet O2");
-        LinkedHashMap<Integer,String> scoreToGrade = new LinkedHashMap<>(){{
-            put(39, "F");
-            put(49, "E");
-            put(59, "D");
-            put(79, "C");
-            put(89, "B");
-        }};
-
-        class Student{
-            public final String name;
-            public final Integer score;
-            Student(String name,Integer score){
-                this.name = name;
-                this.score = score;
-            }
-
-            public String getGrade(){
-                return findByPredicate(scoreToGrade,keyValuePair->keyValuePair.getKey()>=score,"A");
-            }
-        }
 
         List<Student> students = new ArrayList<>(List.of());//new Student("Lars",100),new Student("Bro",50),new Student("The queen of dance",80)
         println("How many ¤student students end¤ are you registering?\nDefault ¤green 10");
