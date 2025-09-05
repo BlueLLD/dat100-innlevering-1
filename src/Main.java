@@ -21,7 +21,7 @@ public class Main {
                     OppgaveO2();
                     break;
                 case 3:
-                    error("Not implemented");
+                    OppgaveO3();
                     break;
                 default:
                     loopProgram = false;
@@ -42,7 +42,11 @@ public class Main {
     static void error(String x){
         println("¤red ERROR: ¤end¤"+x);
     }
-
+    static boolean conditionalError(String x, boolean condition){
+        if(!condition)
+            error(x);
+        return condition;
+    }
 
     /**
      * "Flushes" the screen
@@ -153,6 +157,11 @@ public class Main {
         }
     }
     static void OppgaveO3(){
-
+        int n = forceIntRead("Fakultet nummer: ","Fakultet må være et nummer",_n-> conditionalError("Fakultet må være over 0",_n > 0));
+        int fakultet = 1;
+        for (int i = 2; i < n+1 ;i++){
+            fakultet *= i;
+        }
+        println(n+"! = ¤green "+fakultet);
     }
 }
